@@ -13,10 +13,10 @@ def hello():
 @app.route('/player/<username>', methods=['GET']) #localhost:8877/player
 def getImage(username):
     print(username)
-    if os.path.isfile(username):
+    if os.path.isfile(username): #file <username>.png exists
         return send_file(username, as_attachment=True)
-    else:
-        print(username+" does not exist on server")
+    else: #file does not exist
+        return send_file("default.png", as_attachment=True)
 
 
 
